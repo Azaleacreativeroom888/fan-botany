@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>植物のもり | 植物の勉強サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --moss:#1d3b2a; --deep:#2b5a3c; --leaf:#5f9a54; --mist:#d3e8d4;
+  --sun:#f6eaa6; --paper:#f4f1dc; --bark:#6a4a2e; --ink:#1c2a20;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;color:var(--ink);background:var(--paper);line-height:1.9}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+
+/* header */
+header{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;color:var(--paper)}
+.logo{font-family:"Shippori Mincho",serif;font-weight:700;font-size:1.15rem;text-decoration:none}
+nav ul{list-style:none;display:flex;gap:1.6rem;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;padding:4px 2px;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current]{border-color:var(--sun)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;overflow:hidden;background:linear-gradient(180deg,#9fd0b8 0%,#cfe6c2 38%,#eaf0b9 70%,#b9d78f 100%);display:grid;place-items:center;text-align:center}
+.rays{position:absolute;inset:-10% -10% 0;pointer-events:none;mix-blend-mode:soft-light;opacity:.85;transform-origin:50% 0;animation:sway 14s ease-in-out infinite alternate}
+.rays span{position:absolute;top:0;height:120%;background:linear-gradient(180deg,rgba(255,250,200,.95),rgba(255,250,200,0));transform:skewX(-14deg)}
+.rays span:nth-child(1){left:12%;width:9%}
+.rays span:nth-child(2){left:30%;width:5%}
+.rays span:nth-child(3){left:50%;width:12%}
+.rays span:nth-child(4){left:72%;width:6%}
+.rays span:nth-child(5){left:86%;width:8%}
+@keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.forest{position:absolute;left:0;right:0;bottom:0;width:100%;height:62%;display:block}
+.title{position:relative;z-index:3;padding:0 6vw 14vh;color:var(--moss)}
+.title h1{font-family:"Shippori Mincho",serif;font-weight:700;font-size:clamp(2.8rem,9vw,6rem);letter-spacing:.18em;line-height:1.25;text-shadow:0 2px 0 rgba(255,255,230,.6)}
+.title p{margin-top:1rem;font-size:clamp(1rem,2.4vw,1.25rem);font-weight:500;letter-spacing:.08em}
+.enter{display:inline-block;margin-top:2rem;padding:.7rem 2rem;border-radius:999px;background:var(--moss);color:var(--paper);text-decoration:none;font-weight:700;transition:background .2s}
+.enter:hover{background:var(--deep)}
+
+/* intro */
+.intro{max-width:40rem;margin:0 auto;padding:clamp(3rem,9vw,6rem) 6vw 2rem;text-align:center}
+.intro h2{font-family:"Shippori Mincho",serif;font-size:clamp(1.5rem,4vw,2rem);color:var(--deep);margin-bottom:1.2rem;line-height:1.6}
+.intro p+p{margin-top:1rem}
+
+/* signposts */
+.paths{max-width:62rem;margin:0 auto;padding:2rem 6vw clamp(4rem,10vw,7rem)}
+.paths ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2.4rem 2rem}
+.sign{display:block;text-decoration:none;position:relative;padding:1.5rem 1.4rem 1.6rem;background:var(--bark);color:var(--paper);border-radius:10px 10px 6px 6px;box-shadow:0 6px 0 #42301d;transition:transform .25s}
+.sign::before{content:"";position:absolute;left:50%;bottom:-2.2rem;width:12px;height:2.2rem;margin-left:-6px;background:#42301d;z-index:-1}
+.paths li:nth-child(1) .sign{transform:rotate(-2deg)}
+.paths li:nth-child(2) .sign{transform:rotate(1.5deg)}
+.paths li:nth-child(3) .sign{transform:rotate(-1deg)}
+.sign:hover{transform:rotate(0) translateY(-4px)}
+.sign strong{display:block;font-family:"Shippori Mincho",serif;font-size:1.4rem;margin-bottom:.3rem}
+.sign span{font-size:.92rem;line-height:1.7;opacity:.92}
+
+footer{background:var(--moss);color:var(--mist);text-align:center;padding:2rem 6vw;font-size:.9rem}
+
+@media (max-width:640px){
+  header{flex-direction:column;gap:.4rem;padding-top:14px}
+  nav ul{gap:1rem}
+  .title{padding-bottom:18vh}
+}
+@media (prefers-reduced-motion:reduce){
+  .rays{animation:none}
+  html{scroll-behavior:auto}
+  .sign{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">植物のもり</a>
+  <nav aria-label="メインメニュー">
+    <ul>
+      <li><a href="index.html" aria-current="page">トップ</a></li>
+      <li><a href="blog.html">ブログ</a></li>
+      <li><a href="column.html">コラム</a></li>
+      <li><a href="about.html">このサイトについて</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="rays" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <svg class="forest" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <symbol id="round" viewBox="0 0 100 160">
+          <rect x="44" y="90" width="12" height="70" fill="currentColor"/>
+          <circle cx="50" cy="55" r="44" fill="currentColor"/>
+          <circle cx="24" cy="78" r="26" fill="currentColor"/>
+          <circle cx="76" cy="78" r="26" fill="currentColor"/>
+        </symbol>
+        <symbol id="pine" viewBox="0 0 100 200">
+          <rect x="46" y="150" width="8" height="50" fill="currentColor"/>
+          <path d="M50 0 L88 70 H66 L96 125 H70 L100 165 H0 L30 125 H4 L34 70 H12 Z" fill="currentColor"/>
+        </symbol>
+      </defs>
+      <g style="color:#8fbf7d" opacity=".9">
+        <use href="#round" x="40" y="170" width="170" height="272"/>
+        <use href="#pine" x="300" y="150" width="120" height="240"/>
+        <use href="#round" x="520" y="180" width="160" height="256"/>
+        <use href="#pine" x="760" y="140" width="130" height="260"/>
+        <use href="#round" x="960" y="170" width="180" height="288"/>
+      </g>
+      <g style="color:#4f8a4c">
+        <use href="#pine" x="-30" y="100" width="170" height="340"/>
+        <use href="#round" x="210" y="150" width="210" height="336"/>
+        <use href="#pine" x="560" y="110" width="160" height="320"/>
+        <use href="#round" x="800" y="160" width="230" height="368"/>
+        <use href="#pine" x="1060" y="90" width="180" height="360"/>
+      </g>
+      <g style="color:#1d3b2a">
+        <use href="#round" x="-60" y="40" width="300" height="480"/>
+        <use href="#pine" x="380" y="190" width="150" height="300"/>
+        <use href="#pine" x="700" y="200" width="140" height="280"/>
+        <use href="#round" x="930" y="30" width="330" height="528"/>
+      </g>
+      <path d="M0 470 Q300 430 600 462 T1200 450 V500 H0Z" fill="#14291d"/>
+    </svg>
+
+    <div class="title">
+      <h1>植物のもり</h1>
+      <p>木もれ日の下で、草や花のことをゆっくり学ぶ場所</p>
+      <a class="enter" href="#paths">森の中へ入る</a>
+    </div>
+  </section>
+
+  <section class="intro">
+    <h2>足もとの小さな葉っぱにも、<br>ちゃんと名前と物語がある。</h2>
+    <p>ここは、植物について勉強したことを少しずつ書きためていくサイトです。</p>
+    <p>日々の記録、漫画やイラスト、ちょっとした考えごとを、森の小道をたどるように眺めてください。</p>
+  </section>
+
+  <section class="paths" id="paths" aria-label="サイトの案内">
+    <ul>
+      <li><a class="sign" href="blog.html"><strong>ブログ</strong><span>勉強の進み具合を、日付つきのひとことで。</span></a></li>
+      <li><a class="sign" href="column.html"><strong>コラム</strong><span>漫画、イラスト、4コマ、軽い読みものを置いています。</span></a></li>
+      <li><a class="sign" href="about.html"><strong>このサイトについて</strong><span>どんな人が、なぜ作っているのか。</span></a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 植物のもり</p>
+</footer>
+
+</body>
+</html>
