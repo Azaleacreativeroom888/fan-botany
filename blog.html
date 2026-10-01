@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ブログ | 植物のもり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --moss:#1d3b2a; --deep:#2b5a3c; --leaf:#5f9a54; --mist:#d3e8d4;
+  --sun:#f6eaa6; --paper:#f4f1dc; --bark:#6a4a2e; --ink:#1c2a20;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;color:var(--ink);background:var(--paper);line-height:1.9}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+
+/* header */
+.top{position:relative;overflow:hidden;color:var(--paper);background:linear-gradient(180deg,#2b5a3c 0%,#3f7a48 100%);padding-bottom:3.5rem}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;position:relative;z-index:2}
+.logo{font-family:"Shippori Mincho",serif;font-weight:700;font-size:1.15rem;text-decoration:none}
+nav ul{list-style:none;display:flex;gap:1.6rem;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;padding:4px 2px;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current]{border-color:var(--sun)}
+.heading{position:relative;z-index:2;text-align:center;padding:2.5rem 6vw 0}
+.heading h1{font-family:"Shippori Mincho",serif;font-size:clamp(2rem,6vw,3rem);letter-spacing:.18em}
+.heading p{margin-top:.5rem;font-weight:500;letter-spacing:.06em}
+.rays{position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:soft-light}
+.rays span{position:absolute;top:-10%;height:130%;background:linear-gradient(180deg,#fffac8,rgba(255,250,200,0));transform:skewX(-14deg)}
+.rays span:nth-child(1){left:10%;width:8%}
+.rays span:nth-child(2){left:42%;width:12%}
+.rays span:nth-child(3){left:78%;width:7%}
+.hill{position:absolute;left:0;bottom:-1px;width:100%;height:42px;display:block}
+
+/* feed */
+.feed{max-width:38rem;margin:0 auto;padding:2.5rem 5vw 5rem}
+.post{display:grid;grid-template-columns:2.6rem 1fr;gap:0 1rem;padding:1.4rem 0;border-bottom:1px solid rgba(29,59,42,.18)}
+.post:first-child{padding-top:0}
+.icon{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--leaf);display:grid;place-items:center}
+.icon svg{width:1.4rem;height:1.4rem}
+.post time{display:block;font-size:.85rem;font-weight:500;color:var(--deep);margin-bottom:.2rem}
+.post p{font-size:1rem;white-space:pre-line}
+
+footer{background:var(--moss);color:var(--mist);text-align:center;padding:2rem 6vw;font-size:.9rem}
+
+@media (max-width:640px){
+  header{flex-direction:column;gap:.4rem;padding-top:14px}
+  nav ul{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="rays" aria-hidden="true"><span></span><span></span><span></span></div>
+  <header>
+    <a class="logo" href="index.html">植物のもり</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="blog.html" aria-current="page">ブログ</a></li>
+        <li><a href="column.html">コラム</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="heading">
+    <h1>ブログ</h1>
+    <p>勉強の進み具合を、ひとことずつ</p>
+  </div>
+  <svg class="hill" viewBox="0 0 1200 42" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42 V22 Q150 0 300 20 T600 18 T900 22 T1200 14 V42Z" fill="#f4f1dc"/></svg>
+</div>
+
+<main class="feed">
+  <!--
+    新しい日記は、いちばん上に下のかたまりをコピーして貼りつけてください。
+    <article class="post"> ... </article> が1つ分です。
+  -->
+
+  <article class="post">
+    <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22C12 14 8 9 3 8c0 7 3 11 9 14Zm0 0c0-8 4-13 9-14 0 7-3 11-9 14Z" fill="#f4f1dc"/></svg></div>
+    <div>
+      <time datetime="2026-10-01">2026年10月1日</time>
+      <p>今日から植物の勉強をはじめた。まずは身近な草の名前を覚えるところから。</p>
+    </div>
+  </article>
+
+  <article class="post">
+    <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22C12 14 8 9 3 8c0 7 3 11 9 14Zm0 0c0-8 4-13 9-14 0 7-3 11-9 14Z" fill="#f4f1dc"/></svg></div>
+    <div>
+      <time datetime="2026-09-30">2026年9月30日</time>
+      <p>ここに日記の文章が入ります。
+改行もそのまま表示されます。</p>
+    </div>
+  </article>
+
+  <article class="post">
+    <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22C12 14 8 9 3 8c0 7 3 11 9 14Zm0 0c0-8 4-13 9-14 0 7-3 11-9 14Z" fill="#f4f1dc"/></svg></div>
+    <div>
+      <time datetime="2026-09-29">2026年9月29日</time>
+      <p>これはサンプルの投稿です。好きな内容に書き換えてください。</p>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; 植物のもり</p>
+</footer>
+
+</body>
+</html>
