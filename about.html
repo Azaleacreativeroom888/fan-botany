@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>このサイトについて | 植物のもり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --moss:#1d3b2a; --deep:#2b5a3c; --leaf:#5f9a54; --mist:#d3e8d4;
+  --sun:#f6eaa6; --paper:#f4f1dc; --bark:#6a4a2e; --ink:#1c2a20;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;color:var(--ink);background:var(--paper);line-height:1.9}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+
+/* header */
+.top{position:relative;overflow:hidden;color:var(--paper);background:linear-gradient(180deg,#2b5a3c 0%,#3f7a48 100%);padding-bottom:3.5rem}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;position:relative;z-index:2}
+.logo{font-family:"Shippori Mincho",serif;font-weight:700;font-size:1.15rem;text-decoration:none}
+nav ul{list-style:none;display:flex;gap:1.6rem;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;padding:4px 2px;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current]{border-color:var(--sun)}
+.heading{position:relative;z-index:2;text-align:center;padding:2.5rem 6vw 0}
+.heading h1{font-family:"Shippori Mincho",serif;font-size:clamp(2rem,6vw,3rem);letter-spacing:.18em}
+.heading p{margin-top:.5rem;font-weight:500;letter-spacing:.06em}
+.rays{position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:soft-light}
+.rays span{position:absolute;top:-10%;height:130%;background:linear-gradient(180deg,#fffac8,rgba(255,250,200,0));transform:skewX(-14deg)}
+.rays span:nth-child(1){left:10%;width:8%}
+.rays span:nth-child(2){left:42%;width:12%}
+.rays span:nth-child(3){left:78%;width:7%}
+.hill{position:absolute;left:0;bottom:-1px;width:100%;height:42px;display:block}
+
+/* sections */
+main{max-width:56rem;margin:0 auto;padding:2.5rem 6vw 5rem}
+h2{font-family:"Shippori Mincho",serif;font-size:1.6rem;color:var(--deep);margin-bottom:1.2rem;padding-left:.9rem;border-left:6px solid var(--leaf);line-height:1.4}
+section+section{margin-top:3.6rem}
+.lead p+p{margin-top:.9rem}
+.sub{font-size:.85rem;font-weight:700;color:var(--deep);letter-spacing:.12em;margin:1.8rem 0 .8rem}
+
+/* link cards */
+.link-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem}
+.link-card{display:flex;align-items:center;gap:.9rem;text-decoration:none;background:#fffdf0;border-radius:12px;padding:.9rem 1rem;box-shadow:0 4px 0 rgba(29,59,42,.18);transition:transform .2s,box-shadow .2s}
+.link-card:hover{transform:translateY(-3px);box-shadow:0 7px 0 rgba(29,59,42,.18)}
+.link-icon{flex-shrink:0;width:2.8rem;height:2.8rem;border-radius:50%;background:var(--mist);display:grid;place-items:center;font-size:1.4rem}
+.link-text{flex:1;min-width:0}
+.link-name{display:block;font-weight:700;color:var(--deep);line-height:1.5}
+.link-desc{display:block;font-size:.8rem;line-height:1.5;opacity:.85}
+.link-arrow{color:var(--leaf);font-size:1.4rem;transition:transform .2s}
+.link-card:hover .link-arrow{transform:translateX(3px)}
+
+/* form */
+.form-card{background:#fffdf0;border-radius:12px;padding:1.6rem;box-shadow:0 4px 0 rgba(29,59,42,.18)}
+.form-intro{margin-bottom:1.4rem}
+.form-group{margin-bottom:1.1rem}
+.form-label{display:block;font-weight:700;font-size:.9rem;color:var(--deep);margin-bottom:.3rem}
+.required{color:#b4492f;font-style:normal}
+.form-input,.form-textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:2px solid var(--mist);border-radius:8px;padding:.6rem .8rem;transition:border-color .2s}
+.form-input:focus,.form-textarea:focus{outline:none;border-color:var(--leaf)}
+.form-textarea{min-height:9rem;resize:vertical}
+.field-error{display:block;font-size:.8rem;color:#b4492f}
+.form-submit{font:inherit;font-weight:700;cursor:pointer;display:inline-flex;gap:.5rem;align-items:center;background:var(--moss);color:var(--paper);border:none;border-radius:999px;padding:.7rem 2rem;transition:background .2s}
+.form-submit:hover{background:var(--deep)}
+.form-submit:disabled{opacity:.5;cursor:not-allowed}
+.form-success{background:var(--mist);border-radius:8px;padding:1rem;text-align:center;color:var(--moss);font-weight:700;margin-bottom:1.2rem}
+.form-error-global{background:#f6dcd3;border-radius:8px;padding:.8rem 1rem;color:#8a3420;margin-bottom:1rem}
+
+footer{background:var(--moss);color:var(--mist);text-align:center;padding:2rem 6vw;font-size:.82rem;line-height:1.9}
+footer p+p{margin-top:.5rem}
+
+@media (max-width:640px){
+  header{flex-direction:column;gap:.4rem;padding-top:14px}
+  nav ul{gap:1rem}
+  .form-card{padding:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="rays" aria-hidden="true"><span></span><span></span><span></span></div>
+  <header>
+    <a class="logo" href="index.html">植物のもり</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="column.html">コラム</a></li>
+        <li><a href="about.html" aria-current="page">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="heading">
+    <h1>このサイトについて</h1>
+    <p>リンクとお問い合わせ</p>
+  </div>
+  <svg class="hill" viewBox="0 0 1200 42" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42 V22 Q150 0 300 20 T600 18 T900 22 T1200 14 V42Z" fill="#f4f1dc"/></svg>
+</div>
+
+<main>
+  <section class="lead" aria-labelledby="about-title">
+    <h2 id="about-title">植物のもりへようこそ</h2>
+    <p>植物について勉強したことを、少しずつ書きためていくサイトです。日々の記録はブログに、漫画やイラスト、読みものはコラムに置いています。</p>
+    <p>ここに、このサイトを作った理由や自己紹介を書いてください。</p>
+  </section>
+
+  <section aria-labelledby="links-title">
+    <h2 id="links-title">リンク</h2>
+
+    <p class="sub">漫画・イラスト掲載サイト</p>
+    <div class="link-grid">
+      <a class="link-card" href="https://rookie.shonenjump.com/users/14728546961183734555" target="_blank" rel="noopener">
+        <div class="link-icon" aria-hidden="true">📚</div>
+        <div class="link-text"><span class="link-name">ジャンプルーキー</span><span class="link-desc">オリジナル漫画を掲載中</span></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link-card" href="https://www.pixiv.net/users/105728284" target="_blank" rel="noopener">
+        <div class="link-icon" aria-hidden="true">🎨</div>
+        <div class="link-text"><span class="link-name">Pixiv</span><span class="link-desc">二次創作はこちらに掲載</span></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+    </div>
+
+    <p class="sub">SNS・その他</p>
+    <div class="link-grid">
+      <a class="link-card" href="https://bsky.app/profile/azaleaazalea88.bsky.social" target="_blank" rel="noopener">
+        <div class="link-icon" aria-hidden="true">🦋</div>
+        <div class="link-text"><span class="link-name">Bluesky</span><span class="link-desc">近況・作品のお知らせ</span></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link-card" href="https://www.youtube.com/@LilyPopins0512" target="_blank" rel="noopener">
+        <div class="link-icon" aria-hidden="true">🎬</div>
+        <div class="link-text"><span class="link-name">YouTube（リリポピ）</span><span class="link-desc">動画チャンネル</span></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link-card" href="https://lilipopi.github.io/lilypopins/" target="_blank" rel="noopener">
+        <div class="link-icon" aria-hidden="true">🌸</div>
+        <div class="link-text"><span class="link-name">リリポピのホームページ</span><span class="link-desc">別サイト</span></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+    </div>
+
+    <p class="sub">Azalea72のホームページ</p>
+    <div class="link-grid">
+      <a class="link-card" href="https://azaleacreativeroom888.github.io/storyreviewazalea/" target="_blank" rel="noopener">
+        <div class="link-icon" aria-hidden="true">📖</div>
+        <div class="link-text"><span class="link-name">書評サイト</span><span class="link-desc">本・アニメ・映画・ゲーム・小説の備忘録</span></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link-card" href="https://azaleacreativeroom888.github.io/fan-english/" target="_blank" rel="noopener">
+        <div class="link-icon" aria-hidden="true">🍔</div>
+        <div class="link-text"><span class="link-name">英語サイト（English Site）</span><span class="link-desc">英語話者と英語学習者に向けたサイト</span></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link-card" href="https://azaleacreativeroom888.github.io/fan-watercolor/" target="_blank" rel="noopener">
+        <div class="link-icon" aria-hidden="true">☁️</div>
+        <div class="link-text"><span class="link-name">水彩画サイト</span><span class="link-desc">水彩画掲載</span></div>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact-title">
+    <h2 id="contact-title">お問い合わせフォーム</h2>
+    <div class="form-card">
+      <p class="form-intro">ご質問・ご感想などはこちらからどうぞ。<br>Gmailで受け取り、返信いたします。</p>
+
+      <div data-fs-success class="form-success" style="display:none;">
+        <p>メッセージを送信しました。ありがとうございます！</p>
+      </div>
+      <div data-fs-error class="form-error-global" style="display:none;"></div>
+
+      <form id="contact-form" action="https://formspree.io/f/maqvpvoz" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">お名前</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Azalea72" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">メールアドレス <span class="required">*</span></label>
+          <input class="form-input" type="email" id="email" name="email" data-fs-field placeholder="example@email.com" required>
+          <span data-fs-error="email" class="field-error"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">メッセージ <span class="required">*</span></label>
+          <textarea class="form-textarea" id="message" name="message" data-fs-field placeholder="メッセージを入力してください…" rows="6" required></textarea>
+          <span data-fs-error="message" class="field-error"></span>
+        </div>
+        <button class="form-submit" type="submit" data-fs-submit-btn><span aria-hidden="true">📮</span> 送信する</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>当サイトに掲載されている画像・文章・作品について、AI学習への利用、トレース（トレパク）、無断転載・転載、二次利用を禁止します。スクリーンショットの転載・無断引用はご遠慮ください。</p>
+  <p>Please refrain from using any images, text, or works on this website for AI training, tracing, unauthorized reproduction, redistribution, or secondary use.</p>
+  <p>&copy; 植物のもり</p>
+</footer>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'maqvpvoz' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
