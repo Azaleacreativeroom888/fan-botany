@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>コラム | 植物のもり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --moss:#1d3b2a; --deep:#2b5a3c; --leaf:#5f9a54; --mist:#d3e8d4;
+  --sun:#f6eaa6; --paper:#f4f1dc; --bark:#6a4a2e; --ink:#1c2a20;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;color:var(--ink);background:var(--paper);line-height:1.9}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+
+/* header */
+.top{position:relative;overflow:hidden;color:var(--paper);background:linear-gradient(180deg,#2b5a3c 0%,#3f7a48 100%);padding-bottom:3.5rem}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;position:relative;z-index:2}
+.logo{font-family:"Shippori Mincho",serif;font-weight:700;font-size:1.15rem;text-decoration:none}
+nav ul{list-style:none;display:flex;gap:1.6rem;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;padding:4px 2px;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current]{border-color:var(--sun)}
+.heading{position:relative;z-index:2;text-align:center;padding:2.5rem 6vw 0}
+.heading h1{font-family:"Shippori Mincho",serif;font-size:clamp(2rem,6vw,3rem);letter-spacing:.18em}
+.heading p{margin-top:.5rem;font-weight:500;letter-spacing:.06em}
+.rays{position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:soft-light}
+.rays span{position:absolute;top:-10%;height:130%;background:linear-gradient(180deg,#fffac8,rgba(255,250,200,0));transform:skewX(-14deg)}
+.rays span:nth-child(1){left:10%;width:8%}
+.rays span:nth-child(2){left:42%;width:12%}
+.rays span:nth-child(3){left:78%;width:7%}
+.hill{position:absolute;left:0;bottom:-1px;width:100%;height:42px;display:block}
+
+/* sections */
+main{max-width:60rem;margin:0 auto;padding:2.5rem 6vw 5rem}
+h2{font-family:"Shippori Mincho",serif;font-size:1.6rem;color:var(--deep);margin-bottom:1.4rem;padding-left:.9rem;border-left:6px solid var(--leaf);line-height:1.4}
+section+section{margin-top:4rem}
+
+/* works */
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1.6rem}
+.work{background:#fffdf0;border-radius:12px;padding:.9rem .9rem 1.1rem;box-shadow:0 4px 0 rgba(29,59,42,.18)}
+.frame{aspect-ratio:4/3;border-radius:8px;background:var(--mist);display:grid;place-items:center;color:var(--deep);font-size:.85rem;font-weight:500;border:2px dashed var(--leaf);overflow:hidden}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame.tall{aspect-ratio:3/4}
+.panels{display:grid;gap:6px;width:100%;height:100%;padding:8px;grid-template-rows:repeat(4,1fr)}
+.panels i{border:2px solid var(--deep);border-radius:4px;background:#f8f6e4}
+.work h3{font-family:"Shippori Mincho",serif;font-size:1.1rem;margin-top:.8rem}
+.work p{font-size:.88rem;opacity:.85}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;background:var(--deep);color:var(--paper);padding:0 .7rem;border-radius:999px;margin-top:.7rem}
+
+/* essays */
+.essay{background:#fffdf0;border-radius:12px;padding:1.6rem 1.6rem 1.8rem;box-shadow:0 4px 0 rgba(29,59,42,.18)}
+.essay+.essay{margin-top:1.6rem}
+.essay time{font-size:.85rem;font-weight:500;color:var(--deep)}
+.essay h3{font-family:"Shippori Mincho",serif;font-size:1.3rem;margin:.2rem 0 .8rem;line-height:1.5}
+.essay p+p{margin-top:.9rem}
+
+footer{background:var(--moss);color:var(--mist);text-align:center;padding:2rem 6vw;font-size:.9rem}
+
+@media (max-width:640px){
+  header{flex-direction:column;gap:.4rem;padding-top:14px}
+  nav ul{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="rays" aria-hidden="true"><span></span><span></span><span></span></div>
+  <header>
+    <a class="logo" href="index.html">植物のもり</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="column.html" aria-current="page">コラム</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="heading">
+    <h1>コラム</h1>
+    <p>描いたものと、考えたこと</p>
+  </div>
+  <svg class="hill" viewBox="0 0 1200 42" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42 V22 Q150 0 300 20 T600 18 T900 22 T1200 14 V42Z" fill="#f4f1dc"/></svg>
+</div>
+
+<main>
+  <!--
+    【作品の追加】 .work を1つコピーして、.frame の中身を
+    <img src="画像のファイル名" alt="作品の説明"> に差し替えてください。
+    4コマは .frame.tall にすると縦長の枠になります。
+    【記事の追加】 .essay を1つコピーして、日付・題名・本文を書き換えてください。
+  -->
+
+  <section aria-labelledby="works-title">
+    <h2 id="works-title">漫画・イラスト・4コマ</h2>
+    <div class="works">
+      <article class="work">
+        <div class="frame tall"><div class="panels" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+        <span class="tag">4コマ</span>
+        <h3>作品のタイトル</h3>
+        <p>ひとことの説明が入ります。</p>
+      </article>
+      <article class="work">
+        <div class="frame">イラストを入れる</div>
+        <span class="tag">イラスト</span>
+        <h3>作品のタイトル</h3>
+        <p>ひとことの説明が入ります。</p>
+      </article>
+      <article class="work">
+        <div class="frame">漫画を入れる</div>
+        <span class="tag">漫画</span>
+        <h3>作品のタイトル</h3>
+        <p>ひとことの説明が入ります。</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="essay-title">
+    <h2 id="essay-title">読みもの</h2>
+
+    <article class="essay">
+      <time datetime="2026-10-01">2026年10月1日</time>
+      <h3>道ばたの草は、なぜそこに生えているのか</h3>
+      <p>ここに軽い小論文のような文章が入ります。はじめに、ふしぎに思ったことや問いを書きます。</p>
+      <p>つぎに、調べてわかったことや自分なりの考えを書き、最後に短くまとめます。これはサンプルの文章なので、自由に書き換えてください。</p>
+    </article>
+
+    <article class="essay">
+      <time datetime="2026-09-28">2026年9月28日</time>
+      <h3>記事のタイトルがここに入ります</h3>
+      <p>2本目のサンプル記事です。記事を増やすときは、このかたまりをコピーして上に貼ってください。</p>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 植物のもり</p>
+</footer>
+
+</body>
+</html>
